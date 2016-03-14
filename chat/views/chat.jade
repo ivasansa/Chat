@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  //h1= "Sala "+JSON.parse(salaIn).nombre
+  h1= "Usuario "+user.nick
+  h2 Lista de Salas
+
+  //ul
+  //each sala in salas
+    //li= "Sala "+sala.nombre + " con "+ sala.miembros.length + " miembros"
+
+  form(name="input", action='/chat', method="post")
+        div.input
+            span.label Mensaje
+            input(type="text", name="msj")
+            input(type="hidden", name="sala", value=salaIn)
+            input(type="hidden", name="nick", value=JSON.stringify(user))
+            input(type="submit", value="Enviar")
