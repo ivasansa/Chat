@@ -18,35 +18,29 @@ router.post('/', function(req, res, next) {
     console.log("Sala: "+salaSele);
     var u = new user(req.body.nick);
     listaUsers.push(u);
-//    if (listaSalas[0].miembros.length > 0) {
-//        for (va in listaSalas[0].miembros) {
-//            ni = va.nick;
-//            if (va.nick == req.body.nick) {
-//                found = true;
-//                console.log("console"+va.nick);
-//                console.log(req.body.nick);
-//            }
-//        }
-//    }
-//    if(!found){
-//        salaSele.miembros.push(new user(req.body.nick));
-//    }
-//
-//    salaSele.mensajes.push(new mensaje("req.body.nick", "blblb", new Date()));
-    res.render('chat', { salaIn: salaSele , user: u});
+    var msj = "hola";
+
+    res.render('chat', { salaIn: salaSele , user: u.nick, msj: msj});
 });
 
 //mensaje
 router.post('/chat', function(req, res, next) {
     var salaSele = req.body.sala;
     var msj = req.body.msj;
-    var u = req.body.user;
+    var u = req.body.nick;
+
+    var fecha = new Date();
+    var minutes = fecha.getMinutes();
+    var hour = fecha.getHours();
+
+    var fecha = hour+":"+minutes;
+
     if(msj != undefined){
-//        console.log(listaSalas[salaSele.ID]);
-        listaSalas[salaSele].mensajes.push(new mensaje(u, msj, new Date()));
+        listaSalas[salaSele].mensajes.push(new mensaje(u, msj, fecha));
+        console.log("MSJ: "+listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].texto);
     }
 
-    res.render('chat', { salaIn: salaSele, user: u});
+    res.render('chat', { salaIn: salaSele, user: u, msj: msj, fecha: fecha});
 });
 
 module.exports = router;
