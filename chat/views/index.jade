@@ -3,30 +3,20 @@ extends layout
 block content
   h1= title
 
-  h2 Lista de Salas
-
-  //ul
-  //each sala in salas
-    //li= "Sala "+sala.nombre + " con "+ sala.miembros.length + " miembros"
-
-  h2 Inicio de Sesión
   form(name="login", method="post")
         div.input
+            div.row
+                div.col-xs-6
+                    h2 Lista de Salas
+                    each sala in salas
+                        span.listaSalas=sala.nombre
+                        input(type="radio", name="sala", value=JSON.stringify(sala.ID))
+                        br
 
-            span.label
-                b Elige Sala
-            br
-
-            each sala in salas
-                span=sala.nombre
-                input(type="radio", name="sala", value=JSON.stringify(sala.ID))
-                br
-            br
-            span.label
-                b Nombre de Usuario
-            br
-            input(type="text", id="user", name="user")
-            input(type="submit", value="Login")
+                div.col-xs-6
+                    h2 Inicio de Sesión
+                    input(type="text", id="user", name="user")
+                    input(type="submit", value="Login").btn-primary
 
 
 

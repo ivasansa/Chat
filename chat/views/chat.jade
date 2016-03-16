@@ -5,20 +5,19 @@ block content
   h1=user.nick
   h2#salaNombre=salaNombre
   ul#chat
-    h2= fecha+">"+user+": "+msj
+
 
 
 
   form(name="input")
-        div.input
-            span.label Mensaje
-            input(type="text", id="msj", name="msj", value="")
-            input(type="hidden", id="sala", name="sala", value=salaIn)
-            input(type="hidden", id="indexUser", name="indexUser", value=indexUser)
-            input(type="hidden", id="user", name="user", value=JSON.stringify(user))
-            //input(type="hidden", id="ID", name="ID", value=ID)
-            //input(type="submit", id='enviar', value="Enviar")
+    div.input
+        input(type="text", id="msj", name="msj", value="").col-xs-10
+        input(type="hidden", id="sala", name="sala", value=salaIn)
+        input(type="hidden", id="indexUser", name="indexUser", value=indexUser)
+        input(type="hidden", id="user", name="user", value=JSON.stringify(user))
+        //input(type="hidden", id="ID", name="ID", value=ID)
+        //input(type="submit", id='enviar', value="Enviar")
 
 
-        //  form(name="input", action='/chat', method="post")
-  button#enviar Enviar
+    //  form(name="input", action='/chat', method="post")
+    button#enviar.col-xs-2.btn-primary <i class="fa fa-paper-plane"></i>

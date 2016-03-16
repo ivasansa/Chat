@@ -4,9 +4,5 @@ function User(nombre) {
     this.nick = nombre;
     this.ultimoMensaje;
 }
-// class methods
-User.prototype.fooBar = function() {
-
-};
 // export the class
 module.exports = User;

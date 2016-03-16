@@ -6,9 +6,5 @@ function Sala(ID, nombre) {
   this.miembros = [];
   this.mensajes = [];
 }
-// class methods
-Sala.prototype.fooBar = function() {
-
-};
 // export the class
 module.exports = Sala;

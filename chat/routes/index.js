@@ -37,7 +37,7 @@ router.post('/', function(req, res, next) {
     var ms = fecha.getTime(); //Para ver si ha llegado un mensaje nuevo
 
     var index = listaUsers.indexOf(u);
-    console.log(index);
+//    console.log(index);
     var fecha = hour+":"+minutes;
 
     listaSalas[salaSele].mensajes.push(new mensaje(u, msj, fecha, ms));
@@ -51,7 +51,6 @@ router.post('/demanda-chat', function(req, res, next) {
     var salaSele = req.body.salaSele;
     var u = JSON.parse(req.body.u);
     var indexUser = req.body.indexUser;
-    console.log(indexUser);
     var fecha = new Date();
     var minutes = fecha.getMinutes();
     var hour = fecha.getHours();
@@ -62,8 +61,8 @@ router.post('/demanda-chat', function(req, res, next) {
 
 
 
-    console.log("1: "+Number(listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].ms));
-    console.log("2: "+Number(u.ultimoMensaje));
+//    console.log("1: "+Number(listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].ms));
+//    console.log("2: "+Number(u.ultimoMensaje));
     if(listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].ms > listaUsers[indexUser].ultimoMensaje){
 
         ultimoMensaje = listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1];
@@ -81,7 +80,7 @@ router.post('/demanda-chat', function(req, res, next) {
     }
     else{
         res.send("nadaNuevo");
-        console.log("Nada Nuevo");
+//        console.log("Nada Nuevo");
     }
 
 
@@ -102,8 +101,8 @@ router.post('/chat-A', function(req, res, next) {
 
 //    if(msj != undefined){
         listaSalas[salaSele].mensajes.push(new mensaje(u, msj, fecha, ms));
-        console.log("Autor: "+listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].ms);
-        console.log("MSJ: "+listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].texto);
+//        console.log("Autor: "+listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].ms);
+//        console.log("MSJ: "+listaSalas[salaSele].mensajes[listaSalas[salaSele].mensajes.length-1].texto);
 //    }
 
 //    var salaNombre = listaSalas[salaSele].nombre;

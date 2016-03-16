@@ -6,9 +6,5 @@ function Mensaje(nombre, texto, fecha, ms) {
   this.fecha = fecha;
   this.ms = ms;
 }
-// class methods
-Mensaje.prototype.fooBar = function() {
-
-};
 // export the class
 module.exports = Mensaje;
