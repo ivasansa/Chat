@@ -2,15 +2,22 @@ extends layout
 
 block content
   //h1= "Sala "+JSON.parse(salaIn).nombre
-  h1= "Usuario "+user
-  h2 Lista de Salas
-
+  h1=user.nick
+  h2#salaNombre=salaNombre
+  ul#chat
     h2= fecha+">"+user+": "+msj
 
-  form(name="input", action='/chat', method="post")
+
+
+  form(name="input")
         div.input
             span.label Mensaje
-            input(type="text", name="msj")
-            input(type="hidden", name="sala", value=salaIn)
-            input(type="hidden", name="nick", value=user)
-            input(type="submit", value="Enviar")
+            input(type="text", id="msj", name="msj")
+            input(type="hidden", id="sala", name="sala", value=salaIn)
+            input(type="hidden", id="user", name="user", value=JSON.stringify(user))
+            //input(type="hidden", id="ID", name="ID", value=ID)
+            //input(type="submit", id='enviar', value="Enviar")
+
+
+        //  form(name="input", action='/chat', method="post")
+  button#enviar Enviar

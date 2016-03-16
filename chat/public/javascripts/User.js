@@ -1,7 +1,8 @@
 // Constructor
 function User(nombre) {
   // always initialize all instance properties
-  this.nick = nombre;
+    this.nick = nombre;
+    this.ultimoMensaje;
 }
 // class methods
 User.prototype.fooBar = function() {
