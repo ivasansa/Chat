@@ -6,33 +6,32 @@ $(document).ready(function (){
   setInterval(function(){
     $.post('demanda-chat', {
         u: $('#user').attr('value'),
-
-        salaSele: $('#sala').attr('value'),
+        indexUser: $('#indexUser').attr('value'),
+        salaSele: $('#sala').attr('value')
       },function(req){
         if(req != 'nadaNuevo'){
-           console.log("H");
              // $('#chatMsj').append('<div class="me">'+req.mensaje+' &lt;'+req.usuario+'</div>');
-            $('#chat').append('<li class="me">'+"["+req.fecha+"]"+req.user+": "+req.msj+'</li>');
+            $('#chat').append('<li class="me">'+"["+req.fecha+"]"+req.user.nick+": "+req.msj+'</li>');
 
-            document.getElementById('chat').scrollTo(0,document.getElementById('chat').scrollHeight);
+//            document.getElementById('chat').scrollTo(0,document.getElementById('chat').scrollHeight);
 
         }
-        else if(req == "nadaNuevo"){
-//            console.log("Ajax Nada Nuevo");
-        }
+
+
       });
   }, 500);
 //
-//  $('#msj').on('keyup', function (ev) {
-//    if(ev.keyCode == 13){
-//      $.post('chat-A', {
-//          u: $('#user').attr('value'),
-//          salaSele: $('#sala').attr('value'),
-//          msj: $('#msj').val()
-//        });
-//        $('#msj').val('');
-//      }
-//  });
+  $('#msj').on('keyup', function (ev) {
+    if(ev.keyCode == 13){
+      $.post('chat-A', {
+          u: $('#user').attr('value'),
+          salaSele: $('#sala').attr('value'),
+          //ID: $('#ID').attr('value'),
+          msj: $('#msj').val()
+        });
+        $('#msj').val('');
+      }
+  });
 
 $('#enviar').on('click', function(ev){
         ev.preventDefault();
@@ -40,7 +39,7 @@ $('#enviar').on('click', function(ev){
         $.post('chat-A', {
           u: $('#user').attr('value'),
           salaSele: $('#sala').attr('value'),
-          //ID: $('#ID').attr('value'),
+          indexUser: $('#indexUser').attr('value'),
           msj: $('#msj').val()
         });
 

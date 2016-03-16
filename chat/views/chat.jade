@@ -12,8 +12,9 @@ block content
   form(name="input")
         div.input
             span.label Mensaje
-            input(type="text", id="msj", name="msj")
+            input(type="text", id="msj", name="msj", value="")
             input(type="hidden", id="sala", name="sala", value=salaIn)
+            input(type="hidden", id="indexUser", name="indexUser", value=indexUser)
             input(type="hidden", id="user", name="user", value=JSON.stringify(user))
             //input(type="hidden", id="ID", name="ID", value=ID)
             //input(type="submit", id='enviar', value="Enviar")
