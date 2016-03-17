@@ -7,22 +7,13 @@ $(document).ready(function (){
       },function(req){
         if(req != 'nadaNuevo'){
             $('#chat').append('<li class="sms">'+"["+"<i>"+req.fecha+"</i>"+"] "+"<b>"+req.user.nick+"</b>"+": "+req.msj+'</li>');
-
         }
-
-
       });
   }, 500);
 
-$(document).keypress(function(e) {
+$('#msj').on('keyup', function (ev) {
     if(e.which == 13) {
-        $.post('chat-A', {
-          u: $('#user').attr('value'),
-          salaSele: $('#sala').attr('value'),
-          indexUser: $('#indexUser').attr('value'),
-          msj: $('#msj').val()
-        });
-        $('#msj').val('');
+        $( "#enviar" ).click();
     }
 });
 
